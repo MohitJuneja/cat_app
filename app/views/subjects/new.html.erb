@@ -1,0 +1,26 @@
+<h1>Subjects#new</h1>
+
+<div class="form-layout-2 form-group">
+
+<%= form_for(@subject) do |f| %>
+	<table>
+		<tr> 
+		<td>	Name</td>
+		<td> <%= f.text_field(:name) %> </td>
+		</tr>
+		<tr> 
+		<td>	Position</td>
+		<td> <%= f.text_field(:position) %> </td>
+		</tr>
+		<tr> 
+		<td>	Visible</td>
+		<td> <%= f.text_field(:visible) %> </td>
+		</tr>	
+	</table>
+	<div class="col-sm-6 col-md-3 mg-t-50">
+		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token.to_s %>" />
+		<%= f.submit :'Create Subject',  :class => "btn btn-warning btn-block mg-b-10" %>
+	</div>
+
+<%end%>
+</div>

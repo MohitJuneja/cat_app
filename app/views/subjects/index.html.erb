@@ -1,0 +1,30 @@
+<h1>Subjects#index</h1>
+<% content_for :header do %>
+	How many subjects? <%= @subjects.size  %>
+<% end %>
+<div>
+	<%= link_to("Add New Subject",new_subject_path, :class => 'action new') %>
+</div>
+          <h6 class="tx-inverse tx-uppercase tx-bold tx-14 mg-t-80 mg-b-10">All Subjects</h6>
+          <p class="mg-b-25 mg-lg-b-50">Live view of all the subjects.</p>
+
+<div  class="bd rounded table-responsive">
+	<table class="table table-bordered mg-b-0">
+		<th>Name </th>
+		<th>Visible </th>
+		<th>Position </th>
+		<th>Actions </th>
+		<% @subjects.each do |s| %>	
+		<tr> 
+			<td> <%= s.name %></td>
+			<td> <%= s.visible %></td>
+			<td> <%= s.position %></td>
+			<td> 
+				<%= link_to("Show", subject_path(s.id), :class => "action show") %>
+				<%= link_to("Edit", edit_subject_path(s.id), :class => "action edit") %>
+				<%= link_to("Delete", delete_subject_path(s.id), :class => "action delete")%>
+			</td>
+		</tr>
+	<% end %>
+	</table>
+</div>
